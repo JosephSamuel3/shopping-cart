@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+}
+
+.logo{
+    display: flex;
+}
+
+.heading{
+    font-size: 2rem;
+}
+
+.nav{
+    display: none;
+}
