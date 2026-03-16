@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import styles from "../styles/CartItems.module.css";
-import { getCartValue } from "../utils/cartUtils";
+import { totalValue } from "../utils/cartUtils";
 
 const CartItems = ({ cart = [], addItem, removeItem, emptyCart }) => {
   if (!cart || cart.length === 0) {
     return <p className={styles.empty}>Your cart is empty.</p>;
   }
 
-  const totalValue = getCartValue(cart);
+  const totalPrice = totalValue(cart)
 
   return (
     <div className={styles.container} data-testid="cart-items">
@@ -38,7 +38,7 @@ const CartItems = ({ cart = [], addItem, removeItem, emptyCart }) => {
         ))}
       </ul>
       <div className={styles.footer}>
-        <span>Total: ${totalValue.toFixed(2)}</span>
+        <span>Total: ${totalPrice.toFixed(2)}</span>
         <button onClick={emptyCart} className={styles.clear}>
           Clear Cart
         </button>

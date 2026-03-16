@@ -1,13 +1,12 @@
 import { useState } from "react";
 import styles from "../styles/Nav.module.css";
-import { Link } from "react-router-dom";
-import { getTotalItems } from "../utils/cartUtils";
-import PropTypes from "prop-types";
+import { Link, useLocation } from "react-router-dom";
+import { useCartContext } from "../context/CartContext";
 
-const NavBar = ({ cartItems = [] }) => {
-    const [navActive, setNavActive] = useState(false);
-
-    const totalItems = getTotalItems(cartItems);
+const NavBar = () => {
+    const { cartTotalItems } = useCartContext();
+    const totalItems = cartTotalItems();
+    const location = useLocation();
 
     return (
         <header className={styles.header}>
@@ -15,24 +14,16 @@ const NavBar = ({ cartItems = [] }) => {
                 <h1 className={styles.heading}>Shoppr</h1>
             </div>
 
-            <button
-                className={styles.burger}
-                onClick={() => setNavActive((v) => !v)}
-                aria-label="Toggle menu"
-            >
-                &#9776;
-            </button>
-
-            <nav className={`${styles.nav} ${navActive ? styles.navVisible : ""}`}>
+            <nav className={styles.nav}>
                 <ul>
                     <li className={styles.navLinks}>
-                        <Link to="/">Home</Link>
+                        <Link to="/" className={location.pathname === "/" ? styles.active : ""}>Home</Link>
                     </li>
                     <li className={styles.navLinks}>
-                        <Link to="/shop">Shop</Link>
+                        <Link to="/shop" className={location.pathname === "/shop" ? styles.active : ""}>Shop</Link>
                     </li>
                     <li className={styles.navLinks}>
-                        <Link to="/cart">
+                        <Link to="/cart" className={location.pathname === "/cart" ? styles.active : ""}>
                             Cart {totalItems > 0 && <span>({totalItems})</span>}
                         </Link>
                     </li>
@@ -42,8 +33,5 @@ const NavBar = ({ cartItems = [] }) => {
     );
 };
 
-NavBar.PropTypes = {
-    cartItems: PropTypes.array
-}
 
 export default NavBar;

@@ -1,15 +1,13 @@
-import { useState } from 'react';
+import { CartProvider } from './context/CartContext';
 import NavBar from "./components/Nav";
+import Routes from './Routes';
 
 function App() {
-  // example cart state for demonstration
-  const [cartItems, setCartItems] = useState([]);
-
   return (
-    <>
-      <NavBar cartItems={cartItems} />
-      {/* rest of your routes/components would go here */}
-    </>
+    <CartProvider>
+      <NavBar />
+      <Routes />
+    </CartProvider>
   );
 }
 

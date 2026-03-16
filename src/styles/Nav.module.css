@@ -1,5 +1,8 @@
 .header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
 }
 
 .logo{
@@ -11,5 +14,26 @@
 }
 
 .nav{
-    display: none;
+    display: flex;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navLinks {
+    margin: 0 1rem;
+}
+
+.navLinks a {
+    text-decoration: none;
+    color: black;
+}
+
+.active {
+    font-weight: bold;
+    text-decoration: underline;
 }
