@@ -1,0 +1,194 @@
+.ctaSection {
+  position: relative;
+  min-height: 60vh;
+  padding: 0 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background-image: url('../assets/call-to-action-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* darker, smoother overlay */
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/* content layering */
+.ctaSection h1,
+.ctaSection p,
+.ctaSection a {
+  position: relative;
+  z-index: 1;
+}
+
+.ctaSection h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  color: #ff6600;
+}
+
+.ctaSection p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.ctaSection a {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+
+  background: white;
+  color: black;
+  border: 1px solid white;
+
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* hover = invert (like Tailwind version) */
+.ctaSection a:hover {
+  background: transparent;
+  color: white;
+}
+
+.infoSection {
+  max-width: 48rem; /* ~max-w-3xl */
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.infoSection h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: black;
+}
+
+.infoSection p {
+  margin-top: 1rem;
+  color: #6b7280; /* gray-500 */
+  line-height: 1.6;
+}
+
+.productsSection {
+    max-width: 80rem; 
+    margin: 0 auto;   
+    padding: 0 1.5rem 4rem; 
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/* CARD */
+.productLink {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 2rem;
+  min-height: 300px;
+  text-decoration: none;
+  color: white;
+}
+
+/* IMAGE LAYER */
+.cardImg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+
+/* VARIANTS */
+.clothing {
+  background-image: url('../assets/clothing-unsplash.jpg');
+}
+
+.jewelry {
+  background-image: url('../assets/jewellery-unsplash.jpg');
+}
+
+/* DARK OVERLAY */
+.productLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease;
+  z-index: 1;
+}
+
+/* CONTENT */
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+/* HOVER EFFECTS */
+.productLink:hover .cardImg {
+  transform: scale(1.05);
+}
+
+.productLink:hover::after {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.productLink:hover span {
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .ctaSection {
+        min-height: 70vh;
+    }
+
+    .ctaSection h1 {
+        font-size: 3.75rem;
+    }
+
+    .ctaSection p {
+        font-size: 1.25rem;
+    }
+
+    .infoSection {
+        padding: 6rem 1.5rem;
+    }
+
+    .infoSection h2 {
+        font-size: 2rem;
+    }
+    .producsSection {
+        padding-bottom: 6rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .productLink {
+        min-height: 400px; 
+    }
+}

@@ -14,8 +14,8 @@ export const useCartContext = () => {
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (product) => {
-    setCartItems(prev => addItem(prev, product));
+  const addToCart = (product, quantity = 1) => {
+    setCartItems(prev => addItem(prev, product, quantity));
   };
 
   const removeFromCart = (productId) => {

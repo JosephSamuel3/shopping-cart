@@ -1,0 +1,13 @@
+.cart {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-bottom: 2rem;
+}

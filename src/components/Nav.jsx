@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import styles from "../styles/Nav.module.css";
 import { Link, useLocation } from "react-router-dom";
 import { useCartContext } from "../context/CartContext";

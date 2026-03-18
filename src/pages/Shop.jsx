@@ -2,6 +2,7 @@
 import ProductCards from '../components/ProductCards';
 import  useProducts  from '../hooks/useProducts';
 import { useCartContext } from '../context/CartContext';
+import styles from '../styles/Shop.module.css';
 
 const Shop = () => {
   const { products, loading, error } = useProducts();
@@ -11,15 +12,15 @@ const Shop = () => {
   if (error) return <div>Error loading products: {error.message}</div>;
 
   return (
-    <div>
-      <h1>Shop</h1>
-      <ProductCards
-        products={products}
-        addToCart={addToCart}
-        removeFromCart={removeFromCart}
-        cart={cartItems}
-      />
-    </div>
+    <section className={styles.shop}>
+      <h1 className={styles.title}>Shop</h1>
+        <ProductCards
+          products={products}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
+          cart={cartItems}
+        />
+    </section>
   );
 };
 

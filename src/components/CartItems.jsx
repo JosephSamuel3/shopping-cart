@@ -22,16 +22,16 @@ const CartItems = ({ cart = [], addItem, removeItem, emptyCart }) => {
             </div>
             <div className={styles.actions}>
               <button
-                onClick={() => addItem(item)}
-                className={styles.add}
-              >
-                +
-              </button>
-              <button
                 onClick={() => removeItem(item.id)}
                 className={styles.remove}
               >
                 -
+              </button>
+              <button
+                onClick={() => addItem(item)}
+                className={styles.add}
+              >
+                +
               </button>
             </div>
           </li>

@@ -1,17 +1,17 @@
 // Utility helpers for cart operations
 
 /**
- * Add an item to the cart. If item already exists, increment its quantity.
+ * Add an item to the cart. If item already exists, increment its quantity by the specified amount.
  * Returns new cart array.
  */
-function addItem(cart, item) {
+function addItem(cart, item, quantity = 1) {
   const existing = cart.find((i) => i.id === item.id);
   if (existing) {
     return cart.map((i) =>
-      i.id === item.id ? { ...i, quantity: (i.quantity || 1) + 1 } : i
+      i.id === item.id ? { ...i, quantity: (i.quantity || 0) + quantity } : i
     );
   }
-  return [...cart, { ...item, quantity: 1 }];
+  return [...cart, { ...item, quantity }];
 }
 
 /**
@@ -45,4 +45,4 @@ function totalValue(cart) {
   return cart.reduce((total, i) => total + (i.price || 0) * (i.quantity || 0), 0);
 }
 
-export {addItem, removeItem, getQuantity, totalItems, totalValue}
+export { addItem, removeItem, getQuantity, totalItems, totalValue }
