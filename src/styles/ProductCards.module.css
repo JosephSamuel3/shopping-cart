@@ -114,7 +114,7 @@
 
 .quantityInput {
   height: 2.25rem;
-  flex: 1;              /* stretches to fill space between buttons */
+  flex: 1;              
   min-width: 0;
   border: 1px solid #d1d5db;
   padding: 0 0.5rem;

@@ -8,8 +8,8 @@ const Shop = () => {
   const { products, loading, error } = useProducts();
   const { cartItems, addToCart, removeFromCart } = useCartContext();
 
-  if (loading) return <div>Loading products...</div>;
   if (error) return <div>Error loading products: {error.message}</div>;
+  if (loading) return <div>Loading products...</div>;
 
   return (
     <section className={styles.shop}>

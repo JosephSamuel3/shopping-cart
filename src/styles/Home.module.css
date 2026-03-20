@@ -63,14 +63,14 @@
   transition: all 0.2s ease;
 }
 
-/* hover = invert (like Tailwind version) */
+
 .ctaSection a:hover {
   background: transparent;
   color: white;
 }
 
 .infoSection {
-  max-width: 48rem; /* ~max-w-3xl */
+  max-width: 48rem; 
   margin: 0 auto;
   padding: 4rem 1.5rem;
   text-align: center;
@@ -85,7 +85,7 @@
 
 .infoSection p {
   margin-top: 1rem;
-  color: #6b7280; /* gray-500 */
+  color: #6b7280; 
   line-height: 1.6;
 }
 
